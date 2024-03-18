@@ -1,1 +1,34 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+//Variables
+@import "./assets/scss/variables";
+
+
+//Style Files
+@import "./assets/scss/buttons";
+@import "./assets/scss/sidebar";
+@import "./assets/scss/cards";
+@import "./assets/scss/forms";
+@import "./assets/scss/fonts";
+@import "./assets/scss/display";
+@import "./assets/scss/utilities";
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Booststrap functions and variables
+@import "../node_modules/bootstrap/scss/variables";
+
+html, body { 
+    height: 100%; 
+    background-color: $background-page-color;
+}
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+
+

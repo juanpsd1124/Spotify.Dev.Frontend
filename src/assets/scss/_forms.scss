@@ -1,0 +1,35 @@
+
+.searchbar-input
+{
+    width: 40%;
+
+    &.mat-mdc-form-field {
+        //height: 30px;
+
+        .mat-mdc-text-field-wrapper {
+            border-radius: 50px;
+            background-color: $searchbar-color;
+        }
+
+        .mat-mdc-form-field-infix{
+            min-height: inherit !important;
+
+        }
+
+        .mat-mdc-form-field-input-control {
+            font-family: "Montserrat", sans-serif !important;
+            font-size: 14px;
+            font-weight: 700;
+            background-color: $searchbar-color;
+            color:white !important
+        }
+
+        --mdc-filled-text-field-input-text-placeholder-color: white;
+
+    }
+
+    .mat-mdc-form-field-subscript-wrapper {
+        display: none;
+    }
+
+}

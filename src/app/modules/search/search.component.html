@@ -1,0 +1,46 @@
+
+
+
+<div class="search-card" [formGroup]="searchForm">
+      <mat-form-field class="searchbar-input" appearance="fill" >
+        <input matInput placeholder="¿Qué deseas escuchar?" formControlName="searchBar" autocomplete="off" (keydown.enter)="searchItems()">
+        <mat-icon svgIcon="2" matSuffix></mat-icon>
+      </mat-form-field>
+</div>
+
+<div *ngIf="artistResults">
+  <h1 class="result-title-section">Artistas</h1>
+
+  <div class="grid-artist-result">
+      <div class="result-card" *ngFor="let artist of artistResults">
+        <div class="result-img">
+          <img [src]="artist.images[0]?.url" alt="">
+        </div>
+        <h1 class="result-name-title">{{artist.name}}</h1>
+        <p class="result-description"> Artista </p>
+      </div>
+  </div>
+</div>
+
+<div *ngIf="albumResults">
+  <h1 class="result-title-section">Albumes</h1>
+
+  <div class="grid-artist-result">
+      <div class="result-card-album" *ngFor="let album of albumResults">
+        <div class="result-img">
+          <img [src]="album.images[0]?.url" alt="">
+        </div>
+        <h1 class="result-name-title">{{album.name}}</h1>
+        <p class="result-description"> {{album.artists[0].name}} - {{album.release_date | date:'yyyy'}}</p>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
