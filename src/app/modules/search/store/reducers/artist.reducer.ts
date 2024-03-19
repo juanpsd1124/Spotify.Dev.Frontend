@@ -2,13 +2,16 @@ import { Action, createReducer } from "@ngrx/store";
 
 
 
+// Interface to define search result state
 export interface ArtistResultState {
-    selectedArtist: any;
-
+    resultId: string;
+    type: string;
 }
 
 export const defaultArtistResultState: ArtistResultState = {
-    selectedArtist: null
+    resultId: null,
+    type: null
+
 }
 
 const reducer = createReducer(defaultArtistResultState)

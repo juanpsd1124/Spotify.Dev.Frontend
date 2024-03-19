@@ -10,31 +10,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthComponent {
 
+
   /**
-   * Metodo constructor para realizar inyeccion de dependencias
-   * @param _http Angular Http Client 
+   * Constructor method for dependency injections 
+   * @param _authService Auth service
    */
     constructor(
       private _authService: AuthService,
-      public _router: ActivatedRoute
   ){}
 
 
+  /**
+   * Method executed at component creation
+   */
   ngOnInit(){
-
-
-
   }
 
-
-  public subscripcionRuta(): void {
-
-  }
-    
-
+  /**
+   * Method for request login
+   */
   public loginSpotify(): void {
     this._authService.loginSpotify()
-    
   }
 
 

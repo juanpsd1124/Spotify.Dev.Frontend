@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SpotifyService } from 'src/app/core/services/spotify.service';
 import { ResultsComponent } from './components/results/results.component';
 import { SpotifyModel } from 'src/app/core/models/spotify.model';
+import { SearchModel } from './models/search.model';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { SpotifyModel } from 'src/app/core/models/spotify.model';
   ],
   providers:[
     SpotifyService,
-    SpotifyModel
+    SpotifyModel,
+    SearchModel
 
   ]
 })

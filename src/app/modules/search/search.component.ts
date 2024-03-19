@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EResultType } from 'src/app/core/enum/result-type.enum';
 import { ArtistResult } from 'src/app/core/interfaces/result/artist-result.interface';
 import { SpotifyModel } from 'src/app/core/models/spotify.model';
 import { SpotifyService } from 'src/app/core/services/spotify.service';
+import { SearchModel } from './models/search.model';
 
 @Component({
   selector: 'app-search',
@@ -29,18 +30,28 @@ export class SearchComponent {
   public albumResults: Array<any>
 
   /**
+   * Variable to store artists results
+   */
+  public trackResults: Array<any>
+
+  /**
    * Result type enum
    */
   public eResultType = EResultType;
 
   /**
-   * Metodo constructor para realizar inyeccion de dependencias
-   * @param _http Angular Http Client 
+   * Constructor method for dependency injections 
+   * @param _formBuilder Formbuilder instance
+   * @param _spotifyModel Spotify model
+   * @param _activeRoute Angular active route instance
+
    */
   constructor(
-    private formBuilder: FormBuilder,
+    private _formBuilder: FormBuilder,
     private _spotifyModel: SpotifyModel,
-    private _activeRoute: ActivatedRoute
+    private _activeRoute: ActivatedRoute,
+    private _route: Router,
+    private _searchModel: SearchModel
   ){}
 
   /**
@@ -48,17 +59,21 @@ export class SearchComponent {
    */
   ngOnInit(){
     this.initForms();
-console.log("jp ~ ngOnInit ~ this._activeRoute.snapshot.queryParamMap.get('resToken'):", this._activeRoute.snapshot.queryParamMap.get('resToken'));
-    localStorage.setItem('token', this._activeRoute.snapshot.queryParamMap.get('resToken'))
+    if(this._activeRoute.snapshot.queryParamMap.get('resToken')) localStorage.setItem('token', this._activeRoute.snapshot.queryParamMap.get('resToken'));
   }
     
-
+  /**
+   * Method to initialize searchbar form
+   */
   public initForms(): void {
-    this.searchForm = this.formBuilder.group({
+    this.searchForm = this._formBuilder.group({
       searchBar: [null]
     })
   };
 
+  /**
+   * Method for search terms un spotify
+   */
   public searchItems(): void {
     if(this.searchForm?.get('searchBar').value){
       this._spotifyModel.searchItems(this.searchForm?.get('searchBar').value, localStorage.getItem('token')).subscribe(result => {
@@ -67,18 +82,20 @@ console.log("jp ~ ngOnInit ~ this._activeRoute.snapshot.queryParamMap.get('resTo
         if(result) {
           this.artistResults = result.artists.items;
           this.albumResults = result.albums.items;
+          this.trackResults = result.tracks.items;
         }
 
       });
     }
   }
+
+  /**
+   * Method to go to details page
+   */
+  public goToDetail(resultId: string, resultType: string): void {
+    this._searchModel.loadResultId(resultId);
+    this._searchModel.loadResultType(resultType);
+    this._route.navigateByUrl('/home/result-detail')
+  }
     
-
-
-
-
-
-
-
-
 }

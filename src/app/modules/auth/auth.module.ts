@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { AuthService } from './services/auth.service';
+import { MaterialModule } from 'src/app/core/material.module';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { AuthService } from './services/auth.service';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule
   ],
   providers: [
     AuthService

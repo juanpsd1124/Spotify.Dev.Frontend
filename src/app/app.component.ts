@@ -28,6 +28,7 @@ export class AppComponent {
     this._iconRegistry.addSvgIcon('1', this._sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/1.svg'))
     this._iconRegistry.addSvgIcon('2', this._sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/2.svg'))
     this._iconRegistry.addSvgIcon('3', this._sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/3.svg'))
+    this._iconRegistry.addSvgIcon('4', this._sanitizer.bypassSecurityTrustResourceUrl('assets/images/svg/4.svg'))
   }
 
 

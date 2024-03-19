@@ -34,7 +34,7 @@
     .result-description {
         font-size: 16px;
         font-weight: 500;
-        color: #6a6a6a;
+        color: $text-description-gray;
         margin: 0px 
     } 
 }
@@ -44,6 +44,100 @@
 
     .result-img{
         border-radius: 15%;
+    }
+}
+
+.result-card-list-item{
+    color: $primary-white;
+    display: flex;
+    gap: 10px;
+
+    .img-result-card-list-item{
+        width: 100px;
+        height: 100px;
+    }
+
+    .result-card-list-item-texts {
+        h2 {
+            margin: 0px;
+        }
+
+        p {
+            margin: 0px;
+            color:$text-description-gray;
+        }
+    }
+
+}
+
+.result-details-card {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    padding: 20px;
+    background-color: $background-sidebar-color;
+    margin: 20px;
+    border-radius: $cards-border-radius;
+    gap:30px;
+
+    .result-details-img {
+        width: 400px;
+        height: 400px;
+    }
+
+    .result-details-list {
+        display: flex;
+        flex-direction: column;
+        gap:20px
+    }
+
+    .result-details-texts {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+
+        h1 {
+            margin: 0;
+            color: $primary-white;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        p {
+            margin: 0;
+            color: $text-description-gray;
+            font-size: 18px;
+            font-weight: 400; 
+        }
+    }
+}
+
+.auth-card {
+    @extend .search-card;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    margin: 0px;
+    height: 500px;
+    width: 500px;
+
+    h1 {
+        margin: 0px;
+        color: $primary-white;
+        font-size: 24px;
+        font-weight: 500
+    }
+
+    p {
+        margin: 0px;
+        color: $primary-white;
+        font-size: 18px
+    }
+
+    .auth-icon-logo {
+        width: 100px;
+        height: 100px;
     }
 }
 

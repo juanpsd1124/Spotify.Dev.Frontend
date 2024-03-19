@@ -1,0 +1,70 @@
+
+
+<div *ngIf="resultType === eResultType.track" class="result-details-card">
+    <mat-icon class="white-svg-icon" svgIcon="4" (click)="goBack()"></mat-icon>
+    <img class="result-details-img" [src]="resultDetail?.album.images[0].url" alt="">
+    <div class="result-details-list">
+        <div class="result-details-texts">
+            <h1>Título:</h1>
+            <p>{{resultDetail?.name}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Album:</h1>
+            <p>{{resultDetail.album.name}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Popularidad:</h1>
+            <p>{{resultDetail?.popularity}}</p>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="resultType === eResultType.album" class="result-details-card">
+    <mat-icon class="white-svg-icon" svgIcon="4" (click)="goBack()"></mat-icon>
+    <img class="result-details-img" [src]="resultDetail?.images[0].url" alt="">
+    <div class="result-details-list">
+        <div class="result-details-texts">
+            <h1>Nombre de Álbum:</h1>
+            <p>{{resultDetail?.name}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Géneros:</h1>
+            <p *ngFor="let genre of resultDetail?.genres">{{genre | titlecase}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Canciones:</h1>
+            <p>{{resultDetail?.totalTracks}}</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="resultType === eResultType.artist" class="result-details-card">
+    <mat-icon class="white-svg-icon" svgIcon="4" (click)="goBack()"></mat-icon>
+    <img class="result-details-img" [src]="resultDetail?.images[0].url" alt="">
+    <div class="result-details-list">
+        <div class="result-details-texts">
+            <h1>Nombre:</h1>
+            <p>{{resultDetail?.name}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Género:</h1>
+            <p *ngFor="let genre of resultDetail?.genres">{{genre | titlecase}}</p>
+        </div>
+
+        <div class="result-details-texts">
+            <h1>Seguidores:</h1>
+            <p>{{resultDetail?.followers?.total}}</p>
+        </div>
+    
+        <div class="result-details-texts">
+            <h1>Popularidad:</h1>
+            <p>{{resultDetail?.popularity}}</p>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
 export class HttpService {
 
     /**
-     * Metodo constructor para realizar inyeccion de dependencias
+     * Constructor method for dependency injections
      * @param _http Angular Http Client 
      */
     constructor(
@@ -14,9 +14,10 @@ export class HttpService {
     ){}
 
     /**
-     * 
+     * Method to make http get request
      * @param url url to consume
      * @param httpParams Http query params
+     * @param httpHeaders Http headers
      * @returns Observable with server response
      */
     public get<T>(url: string, httpParams: Array<any>, httpHeaders?: Array<any>): Observable<T> {
@@ -29,7 +30,14 @@ export class HttpService {
         return this._http.get<T>(url, {params, headers})
     }
 
-
+    /**
+     * Method to make http post request
+     * @param url url to consume
+     * @param bodyParams body object
+     * @param httpParams Http query params
+     * @param httpHeaders Http headers
+     * @returns Observable with server response
+     */
     public post<T>(url: string, bodyParams: any = null, httpParams: Array<any>, httpHeaders?: Array<any>): Observable<T>{
         let params = new HttpParams();
         
